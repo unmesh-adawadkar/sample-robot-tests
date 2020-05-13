@@ -7,6 +7,7 @@ Library             String
 *** Test Cases ***
 Headless Chrome - Create Webdriver
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}   add_argument    no-sandbox
     Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
     ${options}=     Call Method     ${chrome_options}    to_capabilities
@@ -18,6 +19,7 @@ Headless Chrome - Create Webdriver
 
 Headless Chrome - Open Browser
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}   add_argument    no-sandbox
     Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
     ${options}=     Call Method     ${chrome_options}    to_capabilities
